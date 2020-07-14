@@ -74,22 +74,16 @@ function addPopup(feature, layer) {
 function createMap(earthquakes) {
 
     // Define streetmap and darkmap layers
-    var streetmap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
+    var streetmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token={accessToken}", {
       maxZoom: 18,
       id: "mapbox.streets",
       accessToken: API_KEY
     });
   
-    var darkmap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
-      maxZoom: 18,
-      id: "mapbox.dark",
-      accessToken: API_KEY
-    });
   
     // Define a baseMaps object to hold our base layers
     var baseMaps = {
-      "Street Map": streetmap,
-      "Dark Map": darkmap
+      "Street Map": streetmap
     };
   
     // Create overlay object to hold our overlay layer
